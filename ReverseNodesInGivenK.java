@@ -73,5 +73,7 @@ class Solution {
         }
 
         return newHead != null ? newHead : head;
+
+        //Time Complexity: O(n) | Space Complexity: O(1)
     }
 }
