@@ -23,4 +23,5 @@ public class Program {
             return BinarySearch(array, target, middle + 1, right);
         }
     }
+    // Time Complexity: O(log(n)) | Space Complexity: O(1)
 }
