@@ -10,7 +10,7 @@ public class Program {
             return GetNthFib(n - 1) + GetNthFib(n - 2);
         }
     }
-    //Time Complexity: O(2^n) | Space Complexity: O(n) due to call stack
+    //Time Complexity: O(2^n) recursion | Space Complexity: O(n) due to call stack
 
     public static int GetNthFibWithDictionary(int n) {
         Dictionary<int, int> memory = new Dictionary<int, int>();
