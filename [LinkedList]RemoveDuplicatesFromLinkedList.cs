@@ -8,7 +8,7 @@ public class Program {
             this.next = null;
         }
     }
-
+    //The singly linked list should be sorted.
     //Time Complexity: O(n) | Space Complexity: O(1)
     public LinkedList RemoveDuplicates(LinkedList linkedList) {
         LinkedList currentNode = linkedList;
