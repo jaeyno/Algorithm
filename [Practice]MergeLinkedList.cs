@@ -18,31 +18,31 @@ public class Program {
     }
 
     public LinkedList MergeTwoLinkedLists(LinkedList head1, LinkedList head2) {
-        LinkedList dummyNode = new LinkedList(-1);
-        LinkedList newTail = dummyNode;
+        LinkedList newHead = new LinkedList(-1);
+        LinkedList dummyNode = newHead;
         LinkedList currentNode1 = head1;
         LinkedList currentNode2 = head2;
 
         while (currentNode1 != null && currentNode2 != null) {
             if (currentNode1.value <= currentNode2.value) {
-                newTail.next = currentNode1;
+                dummyNode.next = currentNode1;
                 currentNode1 = currentNode1.next;
             } else {
-                newTail.next = currentNode2;
+                dummyNode.next = currentNode2;
                 currentNode2  = currentNode2.next;
             }
 
-            newTail = newTail.next;
+            dummyNode = dummyNode.next;
         }
 
         if (currentNode1 != null) {
-            newTail.next = currentNode1;
+            dummyNode.next = currentNode1;
         }
 
         if (currentNode2 != null) {
-            newTail.next = currentNode2;
+            dummyNode.next = currentNode2;
         }
 
-        return dummyNode.next;
+        return newHead.next;
     }
 }
