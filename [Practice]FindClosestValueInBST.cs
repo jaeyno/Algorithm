@@ -9,6 +9,8 @@ public class Program {
         }
     }
 
+    //Time Complexity: O(log(n)) | Space Complexity: O(log(n)) because we are using recursion and using call stack
+    //Worst Time Complexity: O(n) | Space Complexity: O(n)
     public int FindClosestValueInBST(BST tree, int target) {
         return this.FindClosestValueInBST(tree, target, tree.value);
     }
