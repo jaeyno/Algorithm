@@ -32,7 +32,7 @@ public class Program {
             if (nums[mid] > mid[0]) {
                 left = mid + 1;
             } else {
-                right = mid - 1;
+                right = mid;
             }
         }
 
