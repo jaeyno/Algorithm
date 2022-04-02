@@ -1,38 +1,32 @@
 public class Program {
     //Time Complexity: O(log(n)) | Space Complexity: O(1)
     public int FindMinInRotatedArray(int[] nums) {
-        if (nums.Length == 1) {
-            return nums[0];
-        }
-
         int left = 0;
         int right = nums.Length - 1;
 
-        //Check if nums is rßotated array
-        //If it is not a rotated array, return the first element
+        //check if array is rotated array
         if (nums[right] > nums[0]) {
             return nums[0];
         }
 
-        //Binary Search
+        //Binary Search on rotated array
         while (right > left) {
             int mid = left + (right - left) / 2;
 
-            //If mid is greater than its next element, then mid + 1 is the smallest number
+            //if mid is greater than its next element, then mid + 1 is the smallest number [4, 5, 6, 7(mid), 2, 3]
             if (nums[mid] > nums[mid + 1]) {
                 return nums[mid + 1];
             }
 
-            //If mid is less than its previous, then mid is the smallest
+            //if mid is less than its previous, then mid is the smallest [4, 5, 6, 7, 2(mid), 3]
             if (nums[mid] < nums[mid - 1]) {
                 return nums[mid];
             }
 
-            //If mid is greater than first element, inflection point is on right
-            if (nums[mid] > mid[0]) {
-                left = mid + 1;
+            if (nums[mid] > nums[0]) {
+                left = mid + 1; //if mid is greater than first element, inflection point is on right
             } else {
-                right = mid;
+                right = mid; //if mid is less than first element, inflection point is on left
             }
         }
 
