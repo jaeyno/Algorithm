@@ -9,11 +9,13 @@ public class Solution {
             //if it is non-alphanumeric character, skip
             if (!Char.IsLetterOrDigit(s[left])) {
                 left++;
+                continue;
             }
 
             //if it is non-alphanumeric character, skip
             if (!Char.IsLetterOrDigit(s[right])) {
                 right--;
+                continue;
             }
 
             //1.convert to lowercae
