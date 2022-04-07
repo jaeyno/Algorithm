@@ -1,0 +1,68 @@
+[Part3] ZigZag Level Order Traversal
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+# Your branch is up to date with 'origin/master'.
+#
+# Changes to be committed:
+#	new file:   [Part3]ZigZagLevelOrderTraversal.cs
+#
+# ------------------------ >8 ------------------------
+# Do not modify or remove the line above.
+# Everything below it will be ignored.
+diff --git a/[Part3]ZigZagLevelOrderTraversal.cs b/[Part3]ZigZagLevelOrderTraversal.cs
+new file mode 100644
+index 0000000..34b5401
+--- /dev/null
++++ b/[Part3]ZigZagLevelOrderTraversal.cs
+@@ -0,0 +1,48 @@
++public class Solution {
++    //Time Complexity: O(n) | Space Complexity: O(n)
++    public List<List<int>> ZigZagLevelOrderTraversal(BST root) {
++        List<List<int>> levels = new List<List<int>>();
++        if (root == null) return levels;
++
++        //Create a queue
++        Queue<BST> queue = new Queue<BST>();
++        queue.Enqueue(root);
++
++        bool isEvenLevel = false;
++        while (queue.Count > 0) {
++            int length = queue.Count;
++            List<int> level = new List<int>();
++            for (int i = 0; i < length; i++) {
++                BST currentNode = queue.Dequeue();
++                level.Add(currentNode.value);
++
++                //Enqueue children nodes of current node
++                if (currentNode.left != null) queue.Enqueue(currentNode.left);
++                if (currentNode.right != null) queue.Enqueue(currentNode.right);
++            }
++
++            //if it is even level, reverse the level array
++            if (isEvenLevel) {
++                this.Reverse(level);
++            }
++
++            levels.Add(level);
++            isEvenLevel = !isEvenLevel;
++        }
++
++        return levels;
++    }
++
++    private void Reverse(List<int> level) {
++        int left = 0;
++        int right = level.Count - 1;
++
++        while (left < right) {
++            int temp = level[left];
++            level[left] = level[right];
++            level[right] = temp;
++            left++;
++            right--;
++        }
++    }
++}
+\ No newline at end of file
